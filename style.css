@@ -37,25 +37,22 @@ body {
  *  CABECERA Y NAVEGACIÓN
  */
 
- .logo {
-    width: 100px;
-    height: auto;
-    display: block;
-    margin: 0 0 10px 20px;
-    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
-}
-
-
 .header {
     background-color: #333;
     color: white;
-    padding: 5px 0;
-    text-align: center;
-    position: sticky; top: 0; /* La cabecera estática */
-    z-index: 10;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
 }
 
 .header-title {
@@ -69,32 +66,70 @@ body {
     font-size: 40px;
 }
 
-.nav {
-    margin-top: 5px;
+.nav-lateral {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 230px;
+    height: 100vh;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 10000;
 }
 
-.nav a {
+.nav-lateral a {
+    margin-top: 4px;
     color: white;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: 0.3s;
+    margin: 4px 0;       
+    padding: 4px 0;
+    font-size: 18px;
 }
 
-/* Navegabilidad por teclado */
-nav a:focus-visible,
-.btn-subir:focus-visible,
-.slider:focus-visible,
-.entrada:focus-visible {
-    outline: 3px solid var(--acento);
-    outline-offset: 3px;
+.nav-lateral a:first-of-type {
+    margin-top: 60px;
 }
 
-body:not(.oscuro) .nav a:hover {
+.nav-lateral a:hover {
     color: var(--acento);
 }
 
-body.oscuro .nav a:hover {
+.nav-lateral.abierto {
+    transform: translateX(0);
+}
+
+.btn-menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.btn-cerrar-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.nav-lateral a:hover {
+    color: var(--acento);
+}
+
+body.oscuro .nav-lateral a:hover {
     color: white;
 }
 
@@ -121,8 +156,8 @@ body.oscuro .nav a:hover {
 }
 
 .entrada:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .entrada img {
@@ -166,13 +201,30 @@ body.oscuro .nav a:hover {
  */
 
 @media (max-width: 600px) {
-    .nav a {
-        display: block;
-        margin: 10px 0;
+
+    .nav-lateral {
+        width: 180px;
+        padding: 15px;
+    }
+
+    .nav-lateral a {
+        font-size: 16px;
+        padding: 6px 0;
+        margin: 6px 0;
+    }
+
+    .nav-lateral a:first-of-type {
+        margin-top: 40px;
+    }
+
+    .btn-menu {
+        top: 12px;
+        left: 12px;
+        font-size: 22px;
     }
 
     .contenido {
-        width: 95%;
+        width: 94%;
     }
 }
 
@@ -199,7 +251,7 @@ body.oscuro .nav a:hover {
     background-color: rgb(20, 20, 20);
     border: none;
     font-weight: 600;
-    display: flex;
+    display: none; /* JS lo controla */
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
@@ -207,7 +259,6 @@ body.oscuro .nav a:hover {
     transition-duration: 0.3s;
     overflow: hidden;
     z-index: 9999;
-    display: none; /* JS lo controla */
 }
 
 /* Ícono dentro del botón */
@@ -307,13 +358,7 @@ body.oscuro .btn-subir {
     border: 1px solid #444;
 }
 
-body.oscuro .btn-subir:hover {
-    width: 140px;
-    border-radius: 50px;
-    transition-duration: 0.3s;
-    background-color: var(--acento);
-    align-items: center;
-}
+
 
 /*
     *  SWITCH MODO OSCURO - https://uiverse.io/Galahhad/heavy-dog-14
@@ -330,7 +375,7 @@ body.oscuro .btn-subir:hover {
 
 /* Ocultar checkbox real */
 .ui-switch input {
-  display: none;
+    display: none;
 }
 
 .ui-switch .slider {
@@ -401,10 +446,9 @@ body.oscuro .btn-subir:hover {
     height: 0;
 }
 
-/* Posición fija en la esquina superior derecha*/
-.ui-switch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
+
+.modo-container {
+    margin-top: auto; 
+    display: flex;
+    padding-bottom: 50px;
 }

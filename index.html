@@ -12,26 +12,36 @@
     <header class="header">
         <div class="header-title">
             <img src="images/logo.png" alt="Logo del blog" class="logo">
-            <h1>Punto de Oro
-            </h1>
+            <h1>Punto de Oro</h1>
         </div>
-        <nav class="nav">
-            <a href="#entrada1">Comprar una pala</a>
-            <a href="#entrada2">Conceptos básicos</a>
-            <a href="#entrada3">La nevera</a>
-        </nav>
-        <label class="ui-switch" id="switchModo" aria-label="Habilita el cambio entre temas">
-            <input type="checkbox" id="checkModo">
-            <div class="slider" tabindex="0">
-                <div class="circle"></div>
-            </div>
-        </label>
     </header>
+    <button id="btnMenu" class="btn-menu">☰</button>
+
+    <nav class="nav-lateral" id="navLateral">
+        <button id="btnCerrarMenu" class="btn-cerrar-menu">✖</button>
+        <a href="#entrada1">Binevenida</a>
+        <a href="#entrada2">Comprar una pala</a>
+        <a href="#entrada3">Conceptos básicos</a>
+        <a href="#entrada4">La nevera</a>
+
+        <div class="modo-container">
+          <label class="ui-switch">
+            <input type="checkbox" id="checkModo">
+            <div class="slider"><div class="circle"></div></div>
+          </label>
+        </div>
+    </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="contenido">
         <div class="entradas">
             <article id="entrada1" class="entrada">
+                <h2>Bienvenida</h2>
+                <p>
+                    ¡Bienvenido a Punto de Oro! Este nuevo blog, basado en la temática del padel (y del post-padel), nace como una practica universitaria a manos de Andrés Ramil para la asignatura de Diseño de Aplicaciones en Red.
+                </p>
+            </article>
+            <article id="entrada2" class="entrada">
                 <h2>Comprar una pala</h2>
                 <img src="images/rsg.webp" alt="Imagen entrada 1">
                 <p>
@@ -54,7 +64,7 @@
                 </p>
             </article>
 
-            <article id="entrada2" class="entrada">
+            <article id="entrada3" class="entrada">
                 <h2>Conceptos básicos</h2>
                 <img src="images/bandeja-padel.jpg" alt="Imagen entrada 2">
                 <p>
@@ -79,7 +89,7 @@
                 </p>
             </article>
 
-            <article id="entrada3" class="entrada">
+            <article id="entrada4" class="entrada">
                 <h2>La nevera</h2>
                 <img src="images/nevera.jpg" alt="Imagen entrada 3">
                 <p>

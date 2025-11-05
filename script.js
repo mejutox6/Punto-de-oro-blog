@@ -1,8 +1,24 @@
+/*
+*  MENÚ LATERAL DESPLEGABLE
+*/
+
+const btnMenu = document.getElementById("btnMenu");
+const btnCerrarMenu = document.getElementById("btnCerrarMenu");
+const navLateral = document.getElementById("navLateral");
+
+btnMenu.addEventListener("click", () => {
+    navLateral.classList.add("abierto");
+});
+
+btnCerrarMenu.addEventListener("click", () => {
+    navLateral.classList.remove("abierto");
+});
+
 /* 
  *  SCROLL SUAVE AL HACER CLIC EN EL MENÚ
  */
 
-document.querySelectorAll('nav a').forEach(enlace => {
+document.querySelectorAll('.nav-lateral a').forEach(enlace => {
     enlace.addEventListener('click', function (e) {
         e.preventDefault(); // evita el salto brusco
         const destino = document.querySelector(this.getAttribute('href'));
